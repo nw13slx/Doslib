@@ -2,7 +2,6 @@
 
 a python2 code for plotting VASP DOSCAR output
 
----
 ## One-liner vasp_dos
 
 installation: ln doslib/vasp_dos ~/bin/vasp_dos
@@ -42,16 +41,10 @@ optional arguments:
 details of the control setting can be found in the doslib/control.py. To use
 the code as library, see dos-lib/example folder.
 
----
-
 ## call it as a library
 
 more examples in the example directory
 
----
-
 ## about
 
 This is a ridiculous code that I wrote to analyze doscar. I wanted it to be able to do some simple plotting and analysis. Originally, it is a very improvised code. Somehow, I was mad at the ugly presentation and decided to rewrite it. So it looks slightly neater. I'm not sure whether the current version is better to read, since I'm still learning pythony writing style. But at least, it is an attempt.
-
-
