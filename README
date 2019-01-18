@@ -1,0 +1,23 @@
+This is a ridiculous code that I wrote to analyze doscar. I wanted it to be able to do some simple plotting and analysis. Originally, it is a very improvised code. Somehow, I was mad at the ugly presentation and decided to rewrite it. So it looks slightly neater. I'm not sure whether the current version is better to read, since I'm still learning pythony writing style. But at least, it is an atempt.
+
+To use this code, you can either use the "one-dos.py" with command-line arguments or write your own main function as in "multiple-dos.py" to analyze multiple doscar at a time. One can easily rewrite the function, plot.plot_atom**() for peratom dos plotting. Please also check out the example
+
+usage: python one-dos.py arguments
+i.e.   python split_dos.py path example/inputfile/0 p 0 f 1 peratom yes write_pdos y wholerange y
+
+arguments:
+   "s, p, d, f"  n, 
+                 for example, "p 1" means analyze the p orbital of atome type 1
+   ntype         [# of types, type 0 #, type 1 #, ...]
+                 this setting overrides the one in poscar/contcar
+   write_DOS0    yes/no
+   write_PDOS    yes/no
+   centerEf      yes/no, shift fermi energy to zero
+   zoomin        emin emax
+   wholerange    plot the whole DOS. this will override "zoomin"
+   energyshift   #
+                 instead of setting the fermi energy in this calculation as zero
+                 set other values as zero
+   peratom       yes/no, analyse each atom's DOS
+
+More examples in the "example" directory

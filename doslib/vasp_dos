@@ -1,0 +1,76 @@
+#!/usr/bin/env python
+
+#author: Lixin Sun
+from control import *
+from iodos import *
+from data import *
+from plot import *
+from analysis import *
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+matplotlib.rcParams['font.size'] = 10
+
+import sys
+def main():
+  args=parse_input()
+  #initialization
+  atoms=atom_data()
+  dos=dos_data()
+  cont=control_knob(args,atoms,dos)
+  plt=plot(cont)
+  ana=analysis(atoms,dos)
+
+  "summation and input setting"
+  dumpclean(cont.__dict__)
+
+  #read in overall dos
+  io=iodos(cont,plt)
+  io.read_poscar()
+  io.read_tot_dosfile()
+  plt.tot_dos()
+
+  #write
+  if cont.write_dos0:
+      io.write_tot_dosfile()
+  io.delete_tot_dosfile()
+
+  #read in partial dos
+  if cont.run_pdos:
+    io.read_pdos()
+    plt.pdos()
+    if cont.write_pdos:
+        io.write_pdosfile()
+    io.delete_pdosfile()
+
+  #debug
+  #dumpclean(io.__dict__)
+  #dumpclean(atoms.__dict__)
+  #dumpclean(dos.__dict__)
+
+def parse_input():
+  import argparse
+  parser=argparse.ArgumentParser(
+      description='''A quick wrapper of the doslib python code. It only enables the most common/basic functions.''',
+      epilog="""details of the control setting can be found in the doslib/control.py. To use the code as library, see dos-lib/example folder.""")
+  parser.add_argument('-s', default=-1,type=int,  help='analyze the s orbital from element n. ie: -s 1')
+  parser.add_argument('-p', default=-1,type=int,  help='analyze the s orbital from element n. ie: -p 1')
+  parser.add_argument('-d', default=-1,type=int,  help='analyze the s orbital from element n. ie: -d 1')
+  parser.add_argument('-f', default=-1,type=int,  help='analyze the s orbital from element n. ie: -f 1')
+  parser.add_argument('--write_dos0',action='store_true',help='write the matrix of total dos')
+  parser.add_argument('--write_pdos',action='store_true',help='write the matrix of pdos')
+  parser.add_argument('--center_ef',action='store_true',help='shift fermi level to zero')
+  parser.add_argument('--peratom',action='store_true',help='wirte_peratom information')
+  parser.add_argument('--perspecies',action='store_true',help='plot dos for each species')
+  parser.add_argument('-name',type=str,default="",help='name of the job')
+  parser.add_argument('-path',type=str,default="",help='pathway of the doscar, poscar')
+  parser.add_argument('-doscar',type=str,default="",help='filename of the doscar')
+  parser.add_argument('-poscar',type=str,default="",help='filename of the poscar')
+  parser.add_argument('-zoomin',nargs=2,type=float,help='only plot the dos from value1 to value2')
+  parser.add_argument('-energyshift',type=float,default=None,help='shift the total energy by the value')
+  parser.add_argument('-atom_ntype',nargs='*',type=int,default=None,help='declare the number of different atom types type1 type2 type3')
+  args=parser.parse_args()
+  print "input arguments:",args
+  return args
+
+if __name__ == '__main__':
+  main()
