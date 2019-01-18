@@ -106,12 +106,20 @@ def main():
       least_missing_id=-1
       least_missing_value=np.max([len(P[ref][:,0]) for ref in range(len(P))])
       angle_store=[]
+<<<<<<< HEAD
       Qunsort=[]
+=======
+      Qunsort=[]
+>>>>>>> 6437c0b46ed0e2c1bd338050b226879557dba64b
 
       #first try to find out which pattern matches the best"
       for ref in range(len(P)):
         angle_store+=[{}]
+<<<<<<< HEAD
         Qunsort+=[{}]
+=======
+        Qunsort+=[{}]
+>>>>>>> 6437c0b46ed0e2c1bd338050b226879557dba64b
         for j in ngh_list[i].keys():
           for k in range(len(P[ref])):
              angle_store[ref][j,k]=np.array(ngh_list[i][j][DX]).dot(P[ref][k,:])/ngh_list[i][j][DIST]
@@ -162,7 +170,11 @@ def main():
           for k in range(3):
             nye_tensor[atomi,j,k]-= perm_parity([j,i,m])*A[atomi,i,m,k]
     print atoms.species[atomi],atomi,atoms.positions[atomi,2],' '.join([str(i) for i in nye_tensor[atomi,:].flat])
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 6437c0b46ed0e2c1bd338050b226879557dba64b
   #  dist=(x[i,0]-17)**2
   #  dist+=(x[i,2]-17)**2
   #  dist=np.sqrt(dist)
@@ -230,7 +242,11 @@ def perm_parity(lst):
             parity *= -1
             mn = min(range(i,len(lst)), key=lst.__getitem__)
             lst[i],lst[mn] = lst[mn],lst[i]
+<<<<<<< HEAD
     return parity
+=======
+    return parity
+>>>>>>> 6437c0b46ed0e2c1bd338050b226879557dba64b
 
 class Namespace:
   def __init__(self, **kwargs):
