@@ -1,4 +1,4 @@
-#Doslib
+# Doslib
 
 a python2 code for plotting VASP DOSCAR output
 
@@ -44,13 +44,14 @@ the code as library, see dos-lib/example folder.
 
 ---
 
+## call it as a library
+
 more examples in the example directory
 
 ---
 
-##about
+## about
 
 This is a ridiculous code that I wrote to analyze doscar. I wanted it to be able to do some simple plotting and analysis. Originally, it is a very improvised code. Somehow, I was mad at the ugly presentation and decided to rewrite it. So it looks slightly neater. I'm not sure whether the current version is better to read, since I'm still learning pythony writing style. But at least, it is an attempt.
 
-To use this code, you can either use the "one-dos.py" with command-line arguments or write your own main function as in "multiple-dos.py" to analyze multiple doscar at a time. One can easily rewrite the function, plot.plot_atom**() for peratom dos plotting. Please also check out the example
 
