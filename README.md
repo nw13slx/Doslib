@@ -16,27 +16,29 @@ A quick wrapper of the doslib python code. It only enables the most
 common/basic functions.
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -s S                  analyze the s orbital from element n. ie: -s 1
-  -p P                  analyze the s orbital from element n. ie: -p 1
-  -d D                  analyze the s orbital from element n. ie: -d 1
-  -f F                  analyze the s orbital from element n. ie: -f 1
-  --write_dos0          write the matrix of total dos
-  --write_pdos          write the matrix of pdos
-  --center_ef           shift fermi level to zero
-  --peratom             wirte_peratom information
-  --perspecies          plot dos for each species
-  -name NAME            name of the job
-  -path PATH            pathway of the doscar, poscar
-  -doscar DOSCAR        filename of the doscar
-  -poscar POSCAR        filename of the poscar
-  -zoomin ZOOMIN ZOOMIN
-                        only plot the dos from value1 to value2
-  -energyshift ENERGYSHIFT
-                        shift the total energy by the value
-  -atom_ntype [ATOM_NTYPE [ATOM_NTYPE ...]]
-                        declare the number of different atom types type1 type2
-                        type3
+
+ *  -h, --help            show this help message and exit
+ *  -s S                  analyze the s orbital from element n. ie: -s 1
+ *  -p P                  analyze the s orbital from element n. ie: -p 1
+ *  -d D                  analyze the s orbital from element n. ie: -d 1
+ *  -f F                  analyze the s orbital from element n. ie: -f 1
+ *  --write_dos0          write the matrix of total dos
+ *  --write_pdos          write the matrix of pdos
+ *  --center_ef           shift fermi level to zero
+ *  --peratom             wirte_peratom information
+ *  --perspecies          plot dos for each species
+ *  -name NAME            name of the job
+ *  -path PATH            pathway of the doscar, poscar
+ *  -doscar DOSCAR        filename of the doscar
+ *  -poscar POSCAR        filename of the poscar
+ *  -zoomin ZOOMIN ZOOMIN
+ *                        only plot the dos from value1 to value2
+ *  -energyshift ENERGYSHIFT
+ *                        shift the total energy by the value
+ *  -atom_ntype [ATOM_NTYPE [ATOM_NTYPE ...]]
+ *                        declare the number of different atom types type1     type2
+ *                        type3
+ *
 
 details of the control setting can be found in the doslib/control.py. To use
 the code as library, see dos-lib/example folder.
