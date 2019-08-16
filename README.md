@@ -31,14 +31,10 @@ optional arguments:
  *  -path PATH            pathway of the doscar, poscar
  *  -doscar DOSCAR        filename of the doscar
  *  -poscar POSCAR        filename of the poscar
- *  -zoomin ZOOMIN ZOOMIN
- *                        only plot the dos from value1 to value2
- *  -energyshift ENERGYSHIFT
- *                        shift the total energy by the value
- *  -atom_ntype [ATOM_NTYPE [ATOM_NTYPE ...]]
- *                        declare the number of different atom types type1     type2
- *                        type3
- *
+ *  -zoomin ZOOMIN ZOOMIN only plot the dos from value1 to value2
+ *  -energyshift ENERGYSHIFT shift the total energy by the value
+ *  -atom_ntype [ATOM_NTYPE [ATOM_NTYPE ...]] declare the number of different atom types type1 type2 type3
+
 
 details of the control setting can be found in the doslib/control.py. To use
 the code as library, see dos-lib/example folder.
